@@ -3,10 +3,25 @@ package com.example;
 import java.util.Objects;
 
 public class lessonhw3 {
-    public class Tree<T extends Comparable<T>> {
+
+    public static void main(String[] args) {
+        Tree<Integer> tree = new Tree<>();
+        for(int i=0;i<10;i++)
+            tree.add(i);
+    
+        System.out.println(tree.contains(tree.root, 0));
+
+        System.out.println(tree.contains(tree.root, 1));
+        System.out.println(tree.contains(tree.root, 111));
+        System.out.println(tree.contains(tree.root, 6));
+        System.out.println(tree.contains(tree.root, 10));
+
+    }
+
+    public static class Tree<T extends Comparable<T>> {
 
         private Node root;
-    
+
         private class Node {
             private T value;
             private Node left;
@@ -59,10 +74,9 @@ public class lessonhw3 {
                 {
                     return contains(now.right,value);
                 }
-            throw new UnsupportedOperationException();
+            return false;
         }
     }
-    public static void main(String[] args) {
-        
-    }
+
+
 }
